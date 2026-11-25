@@ -1,6 +1,6 @@
 // M.T.S. Nova - Landing Page JavaScript
-// TEKNOTECH SERVICES - Creadores y Due├▒os.
-// Prohibido vender o modificar sin autorizaci├│n.
+// TEKNOTECH SERVICES - Creadores y Dueños.
+// Prohibido vender o modificar sin autorización.
 
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile Menu Toggle
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-/* M.T.S. Nova - Creadores y Due├▒os. Prohibido vender o modificar sin autorizaci├│n. */
+/* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
     // Header scroll effect
     const header = document.getElementById('header');
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         lastScroll = currentScroll;
     });
-/* M.T.S. Nova - Creadores y Due├▒os. Prohibido vender o modificar sin autorizaci├│n. */
+/* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-/* M.T.S. Nova - Creadores y Due├▒os. Prohibido vender o modificar sin autorizaci├│n. */
+/* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
     // Form submission
     const contactForm = document.getElementById('contact-form');
@@ -84,15 +84,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Simple validation
             if (!name || !email || !message) {
-                showNotification('Por favor complet├í todos los campos.', 'error');
+                showNotification('Por favor completá todos los campos.', 'error');
             return;
         }
-/* M.T.S. Nova - Creadores y Due├▒os. Prohibido vender o modificar sin autorizaci├│n. */
+/* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
         // Email validation
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
-                showNotification('Por favor ingres├í un email v├ílido.', 'error');
+                showNotification('Por favor ingresá un email válido.', 'error');
                 return;
             }
 
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-/* M.T.S. Nova - Creadores y Due├▒os. Prohibido vender o modificar sin autorizaci├│n. */
+/* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
     // Notification function
     function showNotification(message, type) {
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
             background: ${type === 'success' ? '#0066CC' : '#e74c3c'};
         `;
-/* M.T.S. Nova - Creadores y Due├▒os. Prohibido vender o modificar sin autorizaci├│n. */
+/* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
         
         document.body.appendChild(notification);
         
@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => notification.remove(), 300);
         }, 3000);
     }
-/* M.T.S. Nova - Creadores y Due├▒os. Prohibido vender o modificar sin autorizaci├│n. */
+/* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
     // Add animation keyframes
     const style = document.createElement('style');
@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     `;
     document.head.appendChild(style);
-/* M.T.S. Nova - Creadores y Due├▒os. Prohibido vender o modificar sin autorizaci├│n. */
+/* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
     // Intersection Observer for scroll animations
     const observerOptions = {
@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }, observerOptions);
-/* M.T.S. Nova - Creadores y Due├▒os. Prohibido vender o modificar sin autorizaci├│n. */
+/* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
     // Observe elements for animation
     document.querySelectorAll('.service-card, .contact-item, .value-item').forEach(el => {
@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(el);
     });
 });
-/* M.T.S. Nova - Creadores y Due├▒os. Prohibido vender o modificar sin autorizaci├│n. */
+/* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
 // Wizard Logic
 let currentStep = '1';
@@ -199,7 +199,7 @@ let wizardData = {
     fault: '',
     problemDesc: ''
 };
-/* M.T.S. Nova - Creadores y Due├▒os. Prohibido vender o modificar sin autorizaci├│n. */
+/* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
 const stepSequences = {
     software: ['1', '2a', '3a', '4a', 'summary'],
@@ -207,7 +207,7 @@ const stepSequences = {
 };
 
 let currentSequence = [];
-/* M.T.S. Nova - Creadores y Due├▒os. Prohibido vender o modificar sin autorizaci├│n. */
+/* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
 function selectService(btn) {
     document.querySelectorAll('[data-step="1"] .option-btn').forEach(b => { b.classList.remove('selected'); b.setAttribute('aria-pressed', 'false'); });
@@ -217,7 +217,7 @@ function selectService(btn) {
     currentSequence = stepSequences[btn.dataset.value];
     document.getElementById('btn-next').disabled = false;
 }
-/* M.T.S. Nova - Creadores y Due├▒os. Prohibido vender o modificar sin autorizaci├│n. */
+/* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
 function selectClientType(btn) {
     document.querySelectorAll('[data-step="2a"] .option-btn').forEach(b => { b.classList.remove('selected'); b.setAttribute('aria-pressed', 'false'); });
@@ -226,7 +226,7 @@ function selectClientType(btn) {
     wizardData.clientType = btn.dataset.value;
     document.getElementById('btn-next').disabled = false;
 }
-/* M.T.S. Nova - Creadores y Due├▒os. Prohibido vender o modificar sin autorizaci├│n. */
+/* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
 function selectSoftwareType(btn) {
     document.querySelectorAll('[data-step="3a"] .option-btn').forEach(b => { b.classList.remove('selected'); b.setAttribute('aria-pressed', 'false'); });
@@ -235,7 +235,7 @@ function selectSoftwareType(btn) {
     wizardData.softwareType = btn.dataset.value;
     document.getElementById('btn-next').disabled = false;
 }
-/* M.T.S. Nova - Creadores y Due├▒os. Prohibido vender o modificar sin autorizaci├│n. */
+/* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
 function selectDevice(btn) {
     document.querySelectorAll('[data-step="2b"] .option-btn').forEach(b => { b.classList.remove('selected'); b.setAttribute('aria-pressed', 'false'); });
@@ -244,7 +244,7 @@ function selectDevice(btn) {
     wizardData.device = btn.dataset.value;
     document.getElementById('btn-next').disabled = false;
 }
-/* M.T.S. Nova - Creadores y Due├▒os. Prohibido vender o modificar sin autorizaci├│n. */
+/* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
 function selectBrand(btn) {
     document.querySelectorAll('[data-step="3b"] .option-btn').forEach(b => { b.classList.remove('selected'); b.setAttribute('aria-pressed', 'false'); });
@@ -253,7 +253,7 @@ function selectBrand(btn) {
     wizardData.brand = btn.dataset.value;
     document.getElementById('btn-next').disabled = false;
 }
-/* M.T.S. Nova - Creadores y Due├▒os. Prohibido vender o modificar sin autorizaci├│n. */
+/* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
 function selectFault(btn) {
     document.querySelectorAll('[data-step="4b"] .option-btn').forEach(b => { b.classList.remove('selected'); b.setAttribute('aria-pressed', 'false'); });
@@ -262,17 +262,17 @@ function selectFault(btn) {
     wizardData.fault = btn.dataset.value;
     document.getElementById('btn-next').disabled = false;
 }
-/* M.T.S. Nova - Creadores y Due├▒os. Prohibido vender o modificar sin autorizaci├│n. */
+/* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
 document.getElementById('project-desc').addEventListener('input', function() {
     if (currentStep === '4a') document.getElementById('btn-next').disabled = this.value.trim() === '';
 });
-/* M.T.S. Nova - Creadores y Due├▒os. Prohibido vender o modificar sin autorizaci├│n. */
+/* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
 document.getElementById('problem-desc').addEventListener('input', function() {
     if (currentStep === '5b') document.getElementById('btn-next').disabled = this.value.trim() === '';
 });
-/* M.T.S. Nova - Creadores y Due├▒os. Prohibido vender o modificar sin autorizaci├│n. */
+/* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
 function nextStep() {
     if (currentStep === '1' && !wizardData.service) return;
@@ -298,7 +298,7 @@ function nextStep() {
         }
     }
 }
-/* M.T.S. Nova - Creadores y Due├▒os. Prohibido vender o modificar sin autorizaci├│n. */
+/* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
 function prevStep() {
     const prevIndex = currentSequence.indexOf(currentStep) - 1;
@@ -307,7 +307,7 @@ function prevStep() {
         showStep(prevStepNum);
     }
 }
-/* M.T.S. Nova - Creadores y Due├▒os. Prohibido vender o modificar sin autorizaci├│n. */
+/* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
 function showStep(step) {
     document.querySelectorAll('.wizard-step').forEach(s => s.classList.remove('active'));
@@ -354,53 +354,53 @@ function showStep(step) {
         }
     }
 }
-/* M.T.S. Nova - Creadores y Due├▒os. Prohibido vender o modificar sin autorizaci├│n. */
+/* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
 function showSummary() {
     const summaryDiv = document.getElementById('summary-content');
     let html = '';
     
-    html += '<div class="summary-item"><span class="summary-label">Servicio:</span><span class="summary-value">' + (wizardData.service === 'software' ? 'Desarrollo de Software' : 'Servicio T├®cnico') + '</span></div>';
+    html += '<div class="summary-item"><span class="summary-label">Servicio:</span><span class="summary-value">' + (wizardData.service === 'software' ? 'Desarrollo de Software' : 'Servicio Técnico') + '</span></div>';
     
     if (wizardData.service === 'software') {
         html += '<div class="summary-item"><span class="summary-label">Para:</span><span class="summary-value">' + (wizardData.clientType === 'empresa' ? 'Empresa' : 'Marca Personal') + '</span></div>';
         html += '<div class="summary-item"><span class="summary-label">Tipo:</span><span class="summary-value">' + getSoftwareTypeLabel(wizardData.softwareType) + '</span></div>';
         if (wizardData.projectDesc) {
-            html += '<div class="summary-item"><span class="summary-label">Descripci├│n:</span><span class="summary-value">' + wizardData.projectDesc + '</span></div>';
+            html += '<div class="summary-item"><span class="summary-label">Descripción:</span><span class="summary-value">' + wizardData.projectDesc + '</span></div>';
         }
     } else {
         html += '<div class="summary-item"><span class="summary-label">Dispositivo:</span><span class="summary-value">' + capitalize(wizardData.device) + '</span></div>';
         html += '<div class="summary-item"><span class="summary-label">Marca:</span><span class="summary-value">' + capitalize(wizardData.brand) + '</span></div>';
         html += '<div class="summary-item"><span class="summary-label">Problema:</span><span class="summary-value">' + getFaultLabel(wizardData.fault) + '</span></div>';
         if (wizardData.problemDesc) {
-            html += '<div class="summary-item"><span class="summary-label">Descripci├│n:</span><span class="summary-value">' + wizardData.problemDesc + '</span></div>';
+            html += '<div class="summary-item"><span class="summary-label">Descripción:</span><span class="summary-value">' + wizardData.problemDesc + '</span></div>';
         }
     }
     
     summaryDiv.innerHTML = html;
 }
-/* M.T.S. Nova - Creadores y Due├▒os. Prohibido vender o modificar sin autorizaci├│n. */
+/* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
 function getSoftwareTypeLabel(type) {
-    const labels = { web: 'P├ígina Web', app: 'App M├│vil', sistema: 'Sistema a Medida' };
+    const labels = { web: 'Página Web', app: 'App Móvil', sistema: 'Sistema a Medida' };
     return labels[type] || type;
 }
-/* M.T.S. Nova - Creadores y Due├▒os. Prohibido vender o modificar sin autorizaci├│n. */
+/* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
 function getFaultLabel(fault) {
     const labels = {
-        pantalla: 'Pantalla rota', bateria: 'Problema de bater├¡a', carga: 'No carga',
+        pantalla: 'Pantalla rota', bateria: 'Problema de batería', carga: 'No carga',
         lento: 'Funciona lento', virus: 'Virus / Malware', audio: 'Problema de audio',
         botones: 'Botones no funcionan', otro: 'Otro'
     };
     return labels[fault] || fault;
 }
-/* M.T.S. Nova - Creadores y Due├▒os. Prohibido vender o modificar sin autorizaci├│n. */
+/* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
 function capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
-/* M.T.S. Nova - Creadores y Due├▒os. Prohibido vender o modificar sin autorizaci├│n. */
+/* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
 function sendToWhatsApp() {
     let message = '*Nueva consulta desde M.T.S. Nova*\n\n';
@@ -409,13 +409,13 @@ function sendToWhatsApp() {
         message += '*Servicio:* Desarrollo de Software\n';
         message += '*Para:* ' + (wizardData.clientType === 'empresa' ? 'Empresa' : 'Marca Personal') + '\n';
         message += '*Tipo:* ' + getSoftwareTypeLabel(wizardData.softwareType) + '\n';
-        if (wizardData.projectDesc) message += '*Descripci├│n:* ' + wizardData.projectDesc + '\n';
+        if (wizardData.projectDesc) message += '*Descripción:* ' + wizardData.projectDesc + '\n';
     } else {
-        message += '*Servicio:* Servicio T├®cnico\n';
+        message += '*Servicio:* Servicio Técnico\n';
         message += '*Dispositivo:* ' + capitalize(wizardData.device) + '\n';
         message += '*Marca:* ' + capitalize(wizardData.brand) + '\n';
         message += '*Problema:* ' + getFaultLabel(wizardData.fault) + '\n';
-        if (wizardData.problemDesc) message += '*Descripci├│n:* ' + wizardData.problemDesc + '\n';
+        if (wizardData.problemDesc) message += '*Descripción:* ' + wizardData.problemDesc + '\n';
     }
     
     const phone = '5493754476761';
@@ -424,22 +424,22 @@ function sendToWhatsApp() {
     
     sendToFormSubmit();
 }
-/* M.T.S. Nova - Creadores y Due├▒os. Prohibido vender o modificar sin autorizaci├│n. */
+/* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
 
 function sendToFormSubmit() {
-    let serviceText = wizardData.service === 'software' ? 'Desarrollo de Software' : 'Servicio T├®cnico';
+    let serviceText = wizardData.service === 'software' ? 'Desarrollo de Software' : 'Servicio Técnico';
     let details = '';
     
     if (wizardData.service === 'software') {
         details = 'Para: ' + (wizardData.clientType === 'empresa' ? 'Empresa' : 'Marca Personal') + '\n';
         details += 'Tipo: ' + getSoftwareTypeLabel(wizardData.softwareType) + '\n';
-        if (wizardData.projectDesc) details += 'Descripci├│n: ' + wizardData.projectDesc;
+        if (wizardData.projectDesc) details += 'Descripción: ' + wizardData.projectDesc;
     } else {
         details = 'Dispositivo: ' + capitalize(wizardData.device) + '\n';
         details += 'Marca: ' + capitalize(wizardData.brand) + '\n';
         details += 'Problema: ' + getFaultLabel(wizardData.fault) + '\n';
-        if (wizardData.problemDesc) details += 'Descripci├│n: ' + wizardData.problemDesc;
+        if (wizardData.problemDesc) details += 'Descripción: ' + wizardData.problemDesc;
     }
 
     fetch('https://formsubmit.co/ajax/teknotech.oficial@gmail.com', {
@@ -457,7 +457,7 @@ function sendToFormSubmit() {
         showStep('sent');
     });
 }
-/* M.T.S. Nova - Creadores y Due├▒os. Prohibido vender o modificar sin autorizaci├│n. */
+/* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
 function resetWizard() {
     wizardData = {
@@ -485,6 +485,6 @@ function resetWizard() {
     
     window.scrollTo({ top: document.getElementById('wizard').offsetTop - 100, behavior: 'smooth' });
 }
-/* M.T.S. Nova - Creadores y Due├▒os. Prohibido vender o modificar sin autorizaci├│n. */
+/* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
 
