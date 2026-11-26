@@ -111,6 +111,12 @@ a {
     pointer-events: none;
 }
 
+/* Fuerza transparencia incluso si queda un inline style de una version cacheada. */
+#header {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
 .header-container {
     position: relative;
     z-index: 1;
