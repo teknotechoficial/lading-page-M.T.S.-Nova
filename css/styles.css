@@ -466,13 +466,13 @@ a {
 
 /* === BOCETO 2 - NOSOTROS === */
 .about {
-    padding: 56px 0 64px;
+    padding: 48px 0 56px;
 }
 
 .about-content {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: clamp(30px, 4vw, 60px);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 520px);
+    gap: clamp(28px, 4vw, 60px);
     align-items: center;
 }
 
@@ -509,89 +509,101 @@ a {
     margin-top: 24px;
 }
 
-.about-pillars {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 14px;
-    margin-top: 30px;
-}
-
-.about-pillar {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    min-width: 0;
-    padding: 14px 16px;
-    border: 1px solid rgba(217, 169, 79, 0.22);
-    border-radius: 16px;
-    background: rgba(11, 27, 47, 0.35);
-}
-
-.pillar-icon {
-    width: 28px;
-    height: 28px;
-    flex: 0 0 28px;
-    stroke: var(--gold);
-}
-
-.about-pillar span {
-    color: var(--white);
+.about-tags {
     font-size: 0.9rem;
-    font-weight: 600;
-    line-height: 1.3;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-top: 18px;
 }
 
 .about-visual {
-    position: relative;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     width: 100%;
-    padding: 26px 0;
+    min-width: 0;
 }
 
-.about-visual::before {
-    content: '';
-    position: absolute;
-    z-index: 0;
-    top: 46%;
-    left: 50%;
-    width: 110%;
-    max-width: 640px;
-    aspect-ratio: 1 / 1;
-    transform: translate(-50%, -50%);
-    border: 1px solid rgba(217, 169, 79, 0.28);
+/* Terminal de código: espejo visual de la estética hacker del hero. */
+.code-panel {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    background: var(--navy);
+    border: 1px solid rgba(217, 169, 79, 0.35);
+    border-radius: 20px;
+    padding: 22px 26px;
+    box-shadow: 0 18px 42px rgba(4, 14, 26, 0.3);
+    overflow: hidden;
+}
+
+.code-panel-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.code-dot {
+    width: 10px;
+    height: 10px;
+    flex: 0 0 10px;
     border-radius: 50%;
-    background: radial-gradient(circle at center, rgba(217, 169, 79, 0.1) 0%, rgba(217, 169, 79, 0) 68%);
-    pointer-events: none;
 }
 
-.about-isotipo {
+.code-dot-red { background: rgba(255, 107, 107, 0.85); }
+.code-dot-amber { background: rgba(240, 198, 116, 0.85); }
+.code-dot-green { background: rgba(94, 200, 140, 0.85); }
+
+.code-panel-name {
+    margin-left: 10px;
+    font-family: var(--font-titulos);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.68);
+}
+
+.code-panel-body {
     position: relative;
-    z-index: 1;
-    width: min(36vw, 560px);
-    max-width: 100%;
+    margin-top: 16px;
+}
+
+.code-watermark {
+    position: absolute;
+    right: -6px;
+    bottom: -10px;
+    width: 120px;
+    height: 120px;
     object-fit: contain;
-    filter: drop-shadow(0 18px 34px rgba(4, 14, 26, 0.24));
+    opacity: 0.12;
+    pointer-events: none;
+    z-index: 0;
 }
 
-.about-visual-line {
+.code-panel pre {
     position: relative;
     z-index: 1;
-    display: block;
-    width: 96px;
-    height: 2px;
-    margin-top: 26px;
-    border-radius: 999px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.82rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.88);
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
 }
+
+.code-comment { color: rgba(255, 255, 255, 0.5); }
+.code-keyword { color: var(--gold); font-weight: 700; }
+.code-var { color: #E8EEF5; }
+.code-key { color: var(--azul-claro); }
+.code-string { color: var(--gold-soft); }
 
 /* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
 /* === BOCETO 3 - SERVICIOS === */
 .services {
-    padding: 30px 0 clamp(60px, 6vw, 90px);
+    padding: 24px 0 clamp(60px, 6vw, 90px);
 }
 
 .services-grid {
@@ -757,12 +769,12 @@ a {
 
 .wizard-container {
     max-width: 720px;
-    min-height: 420px;
+    min-height: 340px;
     margin: 0 auto;
     background: var(--navy);
     border: 1px solid var(--gold);
     border-radius: 48px;
-    padding: 30px 34px;
+    padding: 26px 30px;
     display: flex;
     flex-direction: column;
     box-shadow: 0 28px 64px rgba(4, 14, 26, 0.3);
@@ -778,8 +790,9 @@ a {
     height: 10px;
     background: var(--gold);
     border-radius: 999px;
-    margin-bottom: 42px;
+    margin-bottom: 26px;
     overflow: hidden;
+    flex: 0 0 auto;
 }
 
 .progress-bar {
@@ -796,7 +809,9 @@ a {
 }
 
 .wizard-step.active {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     flex: 1 1 auto;
 }
 
@@ -984,14 +999,13 @@ a {
     to { transform: scale(1); opacity: 1; }
 }
 
-/* Redes sociales bajo la tarjeta */
+/* Redes sociales dentro del footer, centradas bajo el copyright */
 .social-row {
-    max-width: 720px;
-    margin: 28px auto 0;
+    margin-top: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 18px;
 }
 
 .social-row a {
@@ -999,23 +1013,18 @@ a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 34px;
-    height: 34px;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 50%;
-    transition: color var(--transition), border-color var(--transition), transform var(--transition);
+    transition: color var(--transition), transform var(--transition);
 }
 
 .social-row a:hover,
 .social-row a:focus-visible {
     color: var(--gold);
-    border-color: var(--gold);
-    transform: translateY(-3px);
+    transform: translateY(-2px);
 }
 
 .social-row svg {
-    width: 18px;
-    height: 18px;
+    width: 26px;
+    height: 26px;
 }
 
 /* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
@@ -1204,18 +1213,14 @@ a {
 
     .about-content {
         grid-template-columns: 1fr;
-        gap: 50px;
+        gap: 32px;
     }
 
     .about-visual {
-        max-width: 460px;
+        justify-content: center;
+        max-width: 520px;
         margin: 0 auto;
         width: 100%;
-    }
-
-    .about-isotipo {
-        width: 100%;
-        max-width: 460px;
     }
 
     .services-grid {
@@ -1324,8 +1329,8 @@ a {
         font-size: 1.25rem;
     }
 
-    .about-pillars {
-        grid-template-columns: 1fr;
+    .code-panel {
+        padding: 20px 22px;
     }
 
     .wizard-container {
@@ -1481,12 +1486,7 @@ a {
     }
 
     .social-row {
-        gap: 14px;
-    }
-
-    .social-row a {
-        width: 34px;
-        height: 34px;
+        gap: 16px;
     }
 
     .whatsapp-float {
