@@ -386,7 +386,7 @@ a {
     z-index: 1;
     flex: 1;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr);
     align-items: end;
     gap: 40px;
     padding-top: 32vh;
@@ -419,29 +419,8 @@ a {
     margin-top: 26px;
 }
 
-.hero-cta {
-    align-self: end;
-    justify-self: end;
-    padding-bottom: 6px;
-    padding-right: clamp(60px, 5.2vw, 80px);
-    transform: translateY(23px);
-}
 
-.hero-cta .btn {
-    min-height: 3.1rem;
-    padding: 0 1.9rem;
-    font-size: 1.02rem;
-    letter-spacing: 2.5px;
-    border-radius: 999px;
-    background: var(--steel);
-    color: var(--navy);
-}
 
-.hero-cta .btn:hover,
-.hero-cta .btn:focus-visible {
-    background: var(--gold-soft);
-    color: var(--navy);
-}
 
 /* Secciones de acero */
 .steel-section {
@@ -1203,12 +1182,6 @@ a {
         white-space: normal;
     }
 
-    .hero-cta {
-        justify-self: start;
-        align-self: start;
-        padding-bottom: 0;
-    }
-
     .about-title {
         white-space: normal;
     }
@@ -1403,12 +1376,6 @@ a {
     .btn {
         padding: 14px 26px;
         font-size: 0.72rem;
-    }
-
-    .hero-cta .btn {
-        padding: 0.5rem 1.6rem;
-        font-size: 0.82rem;
-        letter-spacing: 2.5px;
     }
 
     .about-title {
@@ -1686,4 +1653,41 @@ a {
     .header-cta {
         display: none;
     }
+}
+
+/* === Indicador sutil de scroll en el hero === */
+.scroll-cue {
+    position: absolute;
+    left: 50%;
+    bottom: 26px;
+    transform: translateX(-50%);
+    z-index: 2;
+    width: 26px;
+    height: 44px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 9px;
+    border: 1px solid rgba(217, 169, 79, 0.5);
+    border-radius: 999px;
+    text-decoration: none;
+    pointer-events: auto;
+}
+
+.scroll-cue span {
+    width: 3px;
+    height: 10px;
+    border-radius: 2px;
+    background: var(--gold);
+    animation: scrollDot 1.9s ease-in-out infinite;
+}
+
+@keyframes scrollDot {
+    0% { transform: translateY(0); opacity: 0; }
+    25% { opacity: 1; }
+    80%, 100% { transform: translateY(17px); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .scroll-cue span { animation: none; opacity: 1; }
 }

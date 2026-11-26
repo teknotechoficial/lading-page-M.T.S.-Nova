@@ -99,10 +99,8 @@
                 <h1 class="hero-title reveal">M.T.S. Nova,<br>Agencia de <span class="highlight">SOFTWARE</span></h1>
                 <p class="hero-description reveal">Creamos soluciones digitales a medida, alineadas con tus objetivos, necesidades y visión de negocio.</p>
             </div>
-            <div class="hero-cta">
-                <a href="#wizard" class="btn btn-primary btn-pill">COTIZÁ YA</a>
-            </div>
         </div>
+        <a href="#nosotros" class="scroll-cue" aria-label="Desplazarse a la siguiente sección"><span></span></a>
     </section>
     <!-- M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. -->
 
@@ -496,6 +494,10 @@
             });
         }, { threshold: 0.12 });
         reveals.forEach(function (el) { revealObserver.observe(el); });
+        /* Red de seguridad: si el observer no dispara, el contenido siempre termina visible. */
+        setTimeout(function () {
+            reveals.forEach(function (el) { el.classList.add('in-view'); });
+        }, 1800);
     })();
 
     </script>
