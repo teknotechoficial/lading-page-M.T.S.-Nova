@@ -79,6 +79,7 @@
                 <a href="#nosotros" class="nav-link">Nosotros</a>
                 <a href="#servicios" class="nav-link">Servicios</a>
                 <a href="#portafolio" class="nav-link">Portafolio</a>
+                <a href="#wizard" class="nav-link">Contacto</a>
             </nav>
             <!-- M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. -->
             <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
@@ -474,7 +475,7 @@
             entries.forEach(function (entry) {
                 if (entry.isIntersecting) {
                     links.forEach(function (link) {
-                        link.classList.toggle('active', entry.target.id !== 'wizard' && link.getAttribute('href') === '#' + entry.target.id);
+                        link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
                     });
                 }
             });
