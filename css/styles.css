@@ -585,7 +585,58 @@ a {
 /* === BOCETO 3 - SERVICIOS === */
 .services {
     padding: 24px 0 clamp(48px, 5vw, 72px);
-    text-align: center;
+    text-align: left;
+}
+
+.services-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 340px);
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.services-copy { max-width: 760px; }
+
+.services-eyebrow {
+    display: block;
+    font-family: var(--font-titulos);
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+}
+
+.services-title {
+    font-family: var(--font-titulos);
+    font-weight: 800;
+    font-size: clamp(1.9rem, 2.6vw, 2.6rem);
+    line-height: 1.15;
+    color: var(--navy);
+    margin-bottom: 14px;
+}
+
+.services-subtitle {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--white);
+    max-width: 620px;
+}
+
+.services-visual {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.services-isotipo {
+    width: min(100%, 320px);
+    object-fit: contain;
+    filter: drop-shadow(0 16px 26px rgba(4, 14, 26, 0.28));
+    animation: floatSoft 7s ease-in-out infinite;
 }
 
 .services-grid {
@@ -1272,6 +1323,15 @@ a {
         width: 100%;
     }
 
+    .services-intro {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .services-visual {
+        justify-content: center;
+    }
+
     .services-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -1569,6 +1629,7 @@ a {
 
     /* Efectos nuevos también desactivados de forma explícita. */
     .about-isotipo,
+    .services-isotipo,
     .steel-section::before,
     .wizard-nav,
     .wizard-step.active .option-btn,
