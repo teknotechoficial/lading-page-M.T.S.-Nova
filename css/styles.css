@@ -482,7 +482,7 @@ a {
 
 .about-content {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 520px);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 580px);
     align-items: center;
     text-align: left;
     gap: clamp(32px, 5vw, 72px);
@@ -555,12 +555,12 @@ a {
 .about-visual::after {
     content: '';
     position: absolute;
-    bottom: -6px;
-    left: 20%;
-    width: 60%;
-    height: 28px;
-    background: radial-gradient(ellipse at center, rgba(4, 14, 26, 0.62) 0%, rgba(4, 14, 26, 0.25) 45%, transparent 75%);
-    filter: blur(7px);
+    bottom: 12%;
+    left: 22%;
+    width: 56%;
+    height: 24px;
+    background: radial-gradient(ellipse at center, rgba(4, 14, 26, 0.78) 0%, rgba(4, 14, 26, 0.35) 50%, transparent 78%);
+    filter: blur(6px);
     border-radius: 50%;
     pointer-events: none;
 }
@@ -568,8 +568,8 @@ a {
 .about-isotipo {
     position: relative;
     z-index: 1;
-    width: min(100%, 600px);
-    max-width: 100%;
+    width: 100%;
+    max-width: 580px;
     object-fit: contain;
     filter: drop-shadow(0 20px 32px rgba(4, 14, 26, 0.3));
     animation: floatSoft 6s ease-in-out infinite;
@@ -598,12 +598,12 @@ a {
     background: var(--navy);
     border: 1px solid var(--gold);
     border-radius: 36px;
-    padding: 34px 28px;
-    min-height: 300px;
+    padding: 30px 26px;
+    min-height: 250px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     text-align: center;
     transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
 }
@@ -708,7 +708,7 @@ a {
     width: 100%;
     height: auto;
     flex-shrink: 0;
-    margin-top: auto;
+    margin-top: 0;
     border-radius: 0 0 35px 35px;
 }
 
@@ -736,6 +736,9 @@ a {
     flex: 1 1 50%;
     padding: 28px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .portfolio-info h3 {
@@ -763,7 +766,7 @@ a {
 
 .wizard-container {
     max-width: 800px;
-    min-height: 450px;
+    min-height: 360px;
     margin: 0 auto;
     background: var(--navy);
     border: 1px solid var(--gold);
@@ -840,6 +843,7 @@ a {
     align-items: center;
     justify-content: center;
     gap: 9px;
+    min-height: 130px;
     padding: 16px 12px;
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid var(--line-soft);
