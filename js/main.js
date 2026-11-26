@@ -41,9 +41,6 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', function() {
         const currentScroll = window.pageYOffset;
         
-        header.style.background = 'transparent';
-        header.style.boxShadow = 'none';
-        
         lastScroll = currentScroll;
     });
 /* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */

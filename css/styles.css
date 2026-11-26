@@ -95,7 +95,9 @@ a {
     top: 0;
     left: 0;
     right: 0;
-    background-color: transparent;
+    background-color: rgba(5, 5, 5, 0.68);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid transparent;
     z-index: 1000;
     transition: var(--transition);
@@ -111,9 +113,9 @@ a {
     pointer-events: none;
 }
 
-/* Fuerza transparencia incluso si queda un inline style de una version cacheada. */
+/* Mantiene el negro semitransparente incluso sobre un inline style cacheado. */
 #header {
-    background-color: transparent !important;
+    background-color: rgba(5, 5, 5, 0.68) !important;
     box-shadow: none !important;
 }
 
