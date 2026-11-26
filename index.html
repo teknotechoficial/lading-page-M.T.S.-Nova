@@ -108,12 +108,27 @@
     <section class="steel-section about" id="nosotros">
         <div class="container about-content">
             <div class="about-copy">
+                <span class="about-eyebrow reveal">01 — SOBRE NOSOTROS</span>
                 <h2 class="about-title reveal">Más que Software,<br>creamos experiencias</h2>
                 <p class="about-description reveal">Somos una empresa tecnológica internacional especializada en el desarrollo de software. Trabajamos junto a empresas, negocios y profesionales para transformar sus necesidades en soluciones que impulsen sus objetivos.</p>
+                <div class="about-pillars">
+                    <div class="about-pillar reveal">
+                        <svg class="pillar-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                        <span>Software a medida</span>
+                    </div>
+                    <div class="about-pillar reveal">
+                        <svg class="pillar-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 22 7 12 12 2 7 12 2"/><polyline points="2 12 12 17 22 12"/><polyline points="2 17 12 22 22 17"/></svg>
+                        <span>Diseño digital</span>
+                    </div>
+                    <div class="about-pillar reveal">
+                        <svg class="pillar-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/></svg>
+                        <span>Soporte continuo</span>
+                    </div>
+                </div>
             </div>
             <div class="about-visual" aria-hidden="true">
-                <div class="about-shadow"></div>
                 <img src="assets/mts-isotipo.png" alt="" class="about-isotipo reveal">
+                <span class="about-visual-line"></span>
             </div>
         </div>
     </section>
@@ -422,10 +437,13 @@
                 <span class="footer-brand">M.T.S. Nova</span>
             </a>
             <div class="footer-center">
-                <p class="footer-copyright">datos de copyright</p>
+                <p class="footer-copyright">© 2026 M.T.S. Nova. Todos los derechos reservados.</p>
+                <p class="footer-legal">Desarrollo y diseño · M.T.S. Nova</p>
             </div>
             <div class="footer-data">
-                <p>demas datos necesarios</p>
+                <p><a href="mailto:teknotech.oficial@gmail.com">teknotech.oficial@gmail.com</a></p>
+                <p><a href="tel:+5493754476761">+54 9 3754 47-6761</a></p>
+                <p>Argentina · Atención 24/7</p>
             </div>
         </div>
     </footer>
@@ -494,6 +512,19 @@
             });
         }, { threshold: 0.12 });
         reveals.forEach(function (el) { revealObserver.observe(el); });
+    })();
+
+    /* El botón flotante de WhatsApp se oculta mientras el footer está en pantalla. */
+    (function () {
+        var whatsapp = document.querySelector('.whatsapp-float');
+        var footer = document.querySelector('.footer');
+        if (!whatsapp || !footer || !('IntersectionObserver' in window)) return;
+        var footerObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                whatsapp.classList.toggle('oculto', entry.isIntersecting);
+            });
+        }, { threshold: 0.1 });
+        footerObserver.observe(footer);
     })();
     </script>
 </body>
