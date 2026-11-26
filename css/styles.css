@@ -466,12 +466,12 @@ a {
 
 /* === BOCETO 2 - NOSOTROS === */
 .about {
-    padding: 48px 0 56px;
+    padding: 72px 0 80px;
 }
 
 .about-content {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 520px);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 560px);
     gap: clamp(28px, 4vw, 60px);
     align-items: center;
 }
@@ -517,87 +517,42 @@ a {
 }
 
 .about-visual {
+    position: relative;
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     min-width: 0;
 }
 
-/* Terminal de código: espejo visual de la estética hacker del hero. */
-.code-panel {
-    position: relative;
-    width: 100%;
-    max-width: 520px;
-    background: var(--navy);
-    border: 1px solid rgba(217, 169, 79, 0.35);
-    border-radius: 20px;
-    padding: 22px 26px;
-    box-shadow: 0 18px 42px rgba(4, 14, 26, 0.3);
-    overflow: hidden;
-}
-
-.code-panel-bar {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding-bottom: 14px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.code-dot {
-    width: 10px;
-    height: 10px;
-    flex: 0 0 10px;
-    border-radius: 50%;
-}
-
-.code-dot-red { background: rgba(255, 107, 107, 0.85); }
-.code-dot-amber { background: rgba(240, 198, 116, 0.85); }
-.code-dot-green { background: rgba(94, 200, 140, 0.85); }
-
-.code-panel-name {
-    margin-left: 10px;
-    font-family: var(--font-titulos);
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    color: rgba(255, 255, 255, 0.68);
-}
-
-.code-panel-body {
-    position: relative;
-    margin-top: 16px;
-}
-
-.code-watermark {
+.about-glow {
     position: absolute;
-    right: -6px;
-    bottom: -10px;
-    width: 120px;
-    height: 120px;
-    object-fit: contain;
-    opacity: 0.12;
+    width: 115%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(217, 169, 79, 0.18) 0%, rgba(217, 169, 79, 0.05) 45%, transparent 70%);
     pointer-events: none;
-    z-index: 0;
 }
 
-.code-panel pre {
+.about-visual::after {
+    content: '';
+    position: absolute;
+    bottom: 2%;
+    left: 20%;
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(217, 169, 79, 0.65), transparent);
+    pointer-events: none;
+}
+
+.about-isotipo {
     position: relative;
     z-index: 1;
-    margin: 0;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 0.82rem;
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.88);
-    white-space: pre-wrap;
-    overflow-wrap: anywhere;
+    width: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 32px rgba(4, 14, 26, 0.3));
 }
-
-.code-comment { color: rgba(255, 255, 255, 0.5); }
-.code-keyword { color: var(--gold); font-weight: 700; }
-.code-var { color: #E8EEF5; }
-.code-key { color: var(--azul-claro); }
-.code-string { color: var(--gold-soft); }
 
 /* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
@@ -769,7 +724,7 @@ a {
 
 .wizard-container {
     max-width: 720px;
-    min-height: 340px;
+    min-height: 390px;
     margin: 0 auto;
     background: var(--navy);
     border: 1px solid var(--gold);
