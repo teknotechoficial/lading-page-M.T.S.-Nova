@@ -70,17 +70,18 @@
 
     <header class="header" id="header">
         <div class="container header-container">
-            <a href="#inicio" class="logo" aria-label="M.T.S. Nova - Inicio">
-                <img src="assets/mts-isotipo.png" alt="M.T.S. Nova" class="logo-img">
+            <!-- Acceso interno: 5 clics seguidos. Discreto, no forma parte de la nav visual. -->
+            <a href="#inicio" class="logo" aria-label="M.T.S. Nova">
+                <img src="assets/mts-isotipo.png" alt="" class="logo-img">
             </a>
             <nav class="nav" id="nav" aria-label="Navegación principal">
-                <a href="#inicio" class="nav-link">Inicio</a>
-                <a href="#servicios" class="nav-link">Servicios</a>
+                <a href="#inicio" class="nav-link active">Inicio</a>
                 <a href="#nosotros" class="nav-link">Nosotros</a>
-                <a href="#contacto" class="nav-link">Contacto</a>
+                <a href="#servicios" class="nav-link">Servicios</a>
+                <a href="#portafolio" class="nav-link">Portafolio</a>
             </nav>
             <!-- M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. -->
-            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
                 <div class="hamburger">
                     <span></span>
                     <span></span>
@@ -92,153 +93,158 @@
     <!-- M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. -->
 
     <section class="hero" id="inicio">
-        <div class="hero-bg"></div>
+        <div class="hero-bg" aria-hidden="true">
+            <div class="phoenix"></div>
+        </div>
         <div class="container hero-content">
             <div class="hero-copy">
-                <h1 class="hero-title">TECNOLOGIA QUE AVANZA,<br><span class="highlight">LEALTAD QUE PERMANECE</span></h1>
-                <p class="hero-tagline">TECNOLOGIA <span class="tagline-sep">|</span> INOVACION <span class="tagline-sep">|</span> ELEGANCIA</p>
-                <p class="hero-description">Desarrollo de software a medida, reparación de dispositivos y soporte técnico confiable para tu negocio o emprendimiento.</p>
-                <div class="hero-actions">
-                    <a href="#contacto" class="btn btn-primary">Contactanos</a>
-                    <a href="#servicios" class="btn btn-outline">Ver Servicios</a>
-                </div>
+                <p class="hero-eyebrow">// AGENCIA DE SOFTWARE &nbsp;·&nbsp; BUENOS AIRES, AR</p>
+                <h1 class="hero-title">M.T.S. Nova,<br>Agencia de <span class="highlight">SOFTWARE</span></h1>
+                <p class="hero-description">Creamos soluciones digitales a medida, alineadas con tus objetivos, necesidades y visión de negocio.</p>
+                <p class="terminal-prompt"><span class="terminal-user">[user@brand-os ~]$</span> <span class="terminal-cursor" aria-hidden="true"></span></p>
             </div>
-            <div class="hero-card">
-                <img src="assets/mts-isotipo.png" alt="Isotipo de M.T.S. Nova" class="hero-card-img">
-                <p class="hero-card-caption">MTS <span>·</span> NOVA</p>
-            </div>
-        </div>
-        <div class="hero-band">
-            <div class="container hero-band-inner">
-                <p class="band-text">SOLUCIONES TECNOLOGICAS INTEGRALES</p>
+            <div class="hero-cta">
+                <a href="#wizard" class="btn btn-primary btn-pill">COTIZÁ YA</a>
             </div>
         </div>
     </section>
     <!-- M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. -->
 
-    <section class="services" id="servicios">
+    <section class="steel-section services" id="servicios">
         <div class="container">
-            <h2 class="section-title">Nuestros Servicios</h2>
-            <p class="section-subtitle">Ofrecemos soluciones tecnologicas integrales para particulares y empresas</p>
-            <!-- M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. -->
-
             <div class="services-grid">
-                <div class="service-card">
+                <article class="service-card">
                     <div class="service-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="4 17 10 11 4 5"></polyline>
-                            <line x1="12" y1="19" x2="20" y2="19"></line>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Desarrollo web</h3>
+                    <p class="service-description">Sitios web diseñados para impulsar tu negocio.</p>
+                </article>
+                <!-- M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. -->
+
+                <article class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="9" cy="20" r="1"></circle>
+                            <circle cx="19" cy="20" r="1"></circle>
+                            <path d="M2 3h2.2l2.1 11.2a2 2 0 0 0 2 1.6h9.9a2 2 0 0 0 2-1.6L22 7H5.5"></path>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">E-commerce</h3>
+                    <p class="service-description">Tiendas online adaptadas a tus objetivos.</p>
+                </article>
+                <!-- M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. -->
+
+                <article class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="2" y="3" width="20" height="18" rx="2"></rect>
+                            <polyline points="7 9 10 12 7 15"></polyline>
+                            <line x1="12" y1="15" x2="17" y2="15"></line>
                         </svg>
                     </div>
                     <h3 class="service-title">Software a medida</h3>
-                    <p class="service-description">Creamos páginas web, aplicaciones y sistemas pensados especialmente para tu negocio.</p>
-                </div>
+                    <p class="service-description">Sistemas creados para necesidades específicas.</p>
+                </article>
                 <!-- M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. -->
 
-                <div class="service-card">
+                <article class="service-card">
                     <div class="service-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="6" y="6" width="12" height="12" rx="2" ry="2"></rect>
-                            <line x1="9" y1="2" x2="9" y2="6"></line>
-                            <line x1="15" y1="2" x2="15" y2="6"></line>
-                            <line x1="9" y1="18" x2="9" y2="22"></line>
-                            <line x1="15" y1="18" x2="15" y2="22"></line>
-                            <line x1="2" y1="9" x2="6" y2="9"></line>
-                            <line x1="2" y1="15" x2="6" y2="15"></line>
-                            <line x1="18" y1="9" x2="22" y2="9"></line>
-                            <line x1="18" y1="15" x2="22" y2="15"></line>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
                         </svg>
                     </div>
-                    <h3 class="service-title">Reparación de Dispositivos</h3>
-                    <p class="service-description">Reparamos celulares, laptops, tablets y dispositivos electrónicos con garantía.</p>
-                </div>
+                    <h3 class="service-title">Aplicaciones</h3>
+                    <p class="service-description">Herramientas digitales para cada operación.</p>
+                </article>
                 <!-- M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. -->
 
-                <div class="service-card">
+                <article class="service-card">
                     <div class="service-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="11" cy="11" r="7"></circle>
+                            <line x1="20" y1="20" x2="16" y2="16"></line>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Optimización SEO</h3>
+                    <p class="service-description">Mayor visibilidad en buscadores.</p>
+                </article>
+                <!-- M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. -->
+
+                <article class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
                             <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z"></path>
                             <path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
                         </svg>
                     </div>
-                    <h3 class="service-title">Soporte las 24 HRS</h3>
-                    <p class="service-description">Estamos disponibles las 24 horas para acompañarte con soporte técnico confiable.</p>
-                </div>
-            </div>
-        </div>
-        <div class="section-band">
-            <div class="container section-band-inner">
-                <p>TECNOLOGIA <span>|</span> INOVACION <span>|</span> ELEGANCIA</p>
+                    <h3 class="service-title">soporte</h3>
+                    <p class="service-description">Acompañamiento y mejora continua.</p>
+                </article>
             </div>
         </div>
     </section>
     <!-- M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. -->
 
-    <section class="about" id="nosotros">
-        <div class="container">
-            <h2 class="section-title">Sobre Nosotros</h2>
-            <div class="about-content">
-                <div class="about-brand">
-                    <img src="assets/mts-logo.png" alt="M.T.S. Nova" class="about-logo">
-                    <p class="about-kicker">TECNOLOGIA QUE AVANZA, LEALTAD QUE PERMANECE</p>
-                </div>
-                <!-- M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. -->
-                <div class="about-side">
-                    <div class="about-text">
-                        <p class="about-description">M.T.S. Nova es una empresa tecnológica dedicada al desarrollo de software y reparacion de dispositivos.</p>
-                    </div>
-                    <!-- M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. -->
-                    <div class="about-values">
-                        <h3 class="values-title">Nuestros Valores</h3>
-                        <div class="values-grid">
-                            <div class="value-item">
-                                <span class="value-icon">&#10003;</span>
-                                <span class="value-name">Confianza</span>
-                            </div>
-                            <div class="value-item">
-                                <span class="value-icon">&#10003;</span>
-                                <span class="value-name">Profesionalismo</span>
-                            </div>
-                            <!-- M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. -->
-                            <div class="value-item">
-                                <span class="value-icon">&#10003;</span>
-                                <span class="value-name">Transparencia</span>
-                            </div>
-                            <div class="value-item">
-                                <span class="value-icon">&#10003;</span>
-                                <span class="value-name">Innovación</span>
-                            </div>
-                            <!-- M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. -->
-                            <div class="value-item">
-                                <span class="value-icon">&#10003;</span>
-                                <span class="value-name">Compromiso</span>
-                            </div>
-                            <div class="value-item">
-                                <span class="value-icon">&#10003;</span>
-                                <span class="value-name">Calidad</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <section class="steel-section about" id="nosotros">
+        <div class="container about-content">
+            <div class="about-copy">
+                <h2 class="about-title">Más que Software,<br>creamos experiencias</h2>
+                <p class="about-description">Somos una empresa tecnológica internacional especializada en el desarrollo de software. Trabajamos junto a empresas, negocios y profesionales para transformar sus necesidades en soluciones que impulsen sus objetivos.</p>
+            </div>
+            <div class="about-visual" aria-hidden="true">
+                <div class="about-shadow"></div>
+                <img src="assets/mts-isotipo.png" alt="" class="about-isotipo">
             </div>
         </div>
-        <div class="section-band section-band-steel">
-            <div class="container section-band-inner">
-                <p>CONFIANZA <span>|</span> PROFESIONALISMO <span>|</span> CALIDAD</p>
-            </div>
+    </section>
+    <!-- M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. -->
+
+    <section class="steel-section portafolio" id="portafolio">
+        <div class="container portfolio-grid">
+            <article class="portfolio-card portfolio-card-wide">
+                <div class="portfolio-copy">
+                    <p>Landing page para una productora audiovisual independiente, con estética cinematográfica, galería interactiva, reproductor de video, animaciones al scroll, diseño responsive y SEO optimizado.</p>
+                </div>
+                <div class="mockup mockup-cine" aria-hidden="true">
+                    <div class="mockup-nav"><span></span><span></span><span></span></div>
+                    <div class="mockup-stage">
+                        <p class="mockup-kicker">PRODUCTORA AUDIOVISUAL INDEPENDIENTE</p>
+                        <h3 class="mockup-title">LIO B STUDIOS</h3>
+                        <p class="mockup-line">CINE • HISTORIAS • EMOCIONES</p>
+                        <div class="mockup-thumbs"><span></span><span></span><span></span></div>
+                    </div>
+                </div>
+            </article>
+            <!-- M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. -->
+
+            <article class="portfolio-card portfolio-card-narrow">
+                <div class="portfolio-fox" aria-hidden="true">🦊😎</div>
+                <div class="portfolio-info">
+                    <h3>Cine Fox × LIO B Studios</h3>
+                    <p>Una landing page creada para presentar ambas marcas, dar a conocer su identidad y acercar su historia al público.</p>
+                </div>
+            </article>
         </div>
     </section>
     <!-- M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. -->
 
     <!-- Wizard Section -->
-    <section class="wizard-section" id="wizard">
-        <div class="container">
-            <h2 class="section-title">¿Qué necesita?</h2>
-            <p class="section-subtitle">Respondi unas preguntas y te ayudamos a encontrar lo que buscas</p>
-            <div class="wizard-container">
-                <div class="wizard-progress"><div class="progress-bar" id="progress-bar"></div></div>
-                <!-- M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. -->
+    <section class="steel-section wizard-section" id="wizard">
+        <div id="contacto" class="wizard-wrap">
+            <div class="container">
+                <h2 class="section-title sr-only">¿Qué necesita?</h2>
+                <p class="section-subtitle sr-only">Respondi unas preguntas y te ayudamos a encontrar lo que buscas</p>
+                <div class="wizard-container">
+                    <div class="wizard-progress" role="progressbar" aria-label="Progreso del cuestionario" aria-valuemin="0" aria-valuemax="100" aria-valuenow="20"><div class="progress-bar" id="progress-bar" style="width:20%"></div></div>
+                    <!-- M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. -->
 
                 <div class="wizard-step active" data-step="1">
                     <h3 class="step-title">Selecciona el servicio</h3>
@@ -394,119 +400,47 @@
                     <button class="btn btn-primary" id="btn-next" onclick="nextStep()" disabled>Siguiente</button>
                     <button class="btn btn-success" id="btn-send" onclick="sendToWhatsApp()" style="display:none;">Enviar por WhatsApp</button>
                 </div>
+                </div>
+                <!-- M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. -->
+
+                <div class="social-row" aria-label="Redes sociales">
+                    <a href="https://instagram.com/teknotech_.services" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="https://wa.me/5493754476761" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L3 21l1.9-5.3A8.5 8.5 0 1 1 21 11.5z"></path><path d="M8.5 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.6 2 .7c.3.1.6 0 .7-.3l.5-1.4c.1-.3 0-.6-.3-.8l-1.5-.9-1 1c-1.2-.6-2.1-1.5-2.7-2.7l1-1-.9-1.5c-.2-.3-.5-.4-.8-.3l-1.4.5c-.3.1-.4.4-.3.7l.7 2z"></path></svg>
+                    </a>
+                    <a href="https://www.tiktok.com/@teknotech_.services" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"></path><path d="M14 3c.4 2.6 2.2 4.4 5 4.7v3c-1.9 0-3.6-.7-5-1.9"></path></svg>
+                    </a>
+                    <a href="https://threads.net/@teknotech_.services" target="_blank" rel="noopener noreferrer" aria-label="Threads">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.5 8.5c-1-2-3.2-3.3-6.3-3.3-3.5 0-6 2.2-6 5.4 0 3.4 2.7 5.4 6.3 5.4 2.5 0 4.3-1 5.3-2.7"></path><path d="M18.5 5v3.5H15"></path><path d="M5 12c0 3.9 3.2 7 7 7s7-3.1 7-7-3.2-7-7-7-7 3.1-7 7z"></path></svg>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
     <!-- M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. -->
 
-    <section class="contact" id="contacto">
-        <div class="container">
-            <h2 class="section-title">Contacto</h2>
-            <p class="section-subtitle">Tenes un proyecto en mente? Hablemos!</p>
-
-            <div class="contact-info-row">
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                        </svg>
-                    </div>
-                    <div class="contact-details">
-                        <h4>Telefono</h4>
-                        <a href="tel:+5493754476761">+54 9 3754 47-6761</a>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                            <polyline points="22,6 12,13 2,6"></polyline>
-                        </svg>
-                    </div>
-                    <!-- M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. -->
-                    <div class="contact-details">
-                        <h4>Email</h4>
-                        <a href="mailto:teknotech.oficial@gmail.com">Escribinos a M.T.S. Nova</a>
-                    </div>
-                </div>
-                <!-- M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. -->
-
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                            <circle cx="12" cy="10" r="3"></circle>
-                        </svg>
-                    </div>
-                    <!-- M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. -->
-                    <div class="contact-details">
-                        <h4>Redes Sociales</h4>
-                        <div class="social-links">
-                            <a href="https://wa.me/5493754476761" target="_blank" rel="noopener noreferrer" class="social-whatsapp">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                                </svg>
-                                WhatsApp
-                            </a>
-                            <!-- M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. -->
-                            <a href="https://instagram.com/teknotech_.services" target="_blank" rel="noopener noreferrer" class="social-instagram">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                                </svg>
-                                Instagram
-                            </a>
-                            <!-- M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. -->
-                            <a href="https://www.facebook.com/people/TeknoTech-Services/61592041958943/?rdid=q7ulMJZmHCHV5vTn&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F187aTueo2Q%2F" target="_blank" rel="noopener noreferrer" class="social-facebook">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                                </svg>
-                                Facebook
-                            </a>
-                            <!-- M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. -->
-                            <a href="https://threads.net/@teknotech_.services" target="_blank" rel="noopener noreferrer" class="social-threads">
-                                <img src="assets/logo-threads.png" alt="Threads" class="threads-icon">
-                                Threads
-                            </a>
-                        </div>
-                    </div>
-                    <!-- M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. -->
-                </div>
-            </div>
-            <!-- M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. -->
-
-            <form class="contact-form" id="contact-form">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name">Nombre</label>
-                        <input type="text" id="name" name="name" required placeholder="Tu nombre">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required placeholder="tu@email.com">
-                    </div>
-                </div>
-                <!-- M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. -->
-                <div class="form-group">
-                    <label for="message">Mensaje</label>
-                    <textarea id="message" name="message" rows="5" required placeholder="En que podemos ayudarte?"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary btn-full">Enviar Mensaje</button>
-            </form>
-            <!-- M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. -->
-        </div>
-    </section>
-    <!-- M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. -->
+    <a class="whatsapp-float" href="https://wa.me/5493754476761" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+    </a>
 
     <footer class="footer">
         <div class="container footer-content">
-            <div class="footer-logo">
-                <img src="assets/mts-logo.png" alt="M.T.S. Nova" class="footer-logo-img">
-                <p class="footer-tagline">TECNOLOGIA <span>|</span> INOVACION <span>|</span> ELEGANCIA</p>
+            <a href="#inicio" class="footer-logo" aria-label="M.T.S. Nova - Inicio">
+                <img src="assets/mts-isotipo.png" alt="M.T.S. Nova" class="footer-logo-img">
+                <span class="footer-brand">M.T.S. Nova</span>
+            </a>
+            <div class="footer-center">
+                <p class="footer-copyright">&copy; 2026 M.T.S. Nova. Todos los derechos reservados.</p>
+                <p class="footer-legal">Tecnología &nbsp;·&nbsp; Innovación &nbsp;·&nbsp; Elegancia</p>
             </div>
-            <p class="footer-copyright">&copy; 2026 M.T.S. Nova. Todos los derechos reservados.</p>
+            <div class="footer-data">
+                <a href="mailto:teknotech.oficial@gmail.com">teknotech.oficial@gmail.com</a>
+                <a href="tel:+5493754476761">+54 9 3754 47-6761</a>
+                <span>Argentina &nbsp;·&nbsp; Atención 24/7</span>
+            </div>
         </div>
     </footer>
     <!-- M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. -->
@@ -540,5 +474,23 @@
     <script src="js/panel-access.js"></script>
 
 
+    <script>
+    (function () {
+        var links = Array.prototype.slice.call(document.querySelectorAll('.nav-link'));
+        var ids = ['inicio', 'nosotros', 'servicios', 'portafolio', 'wizard'];
+        var sections = ids.map(function (id) { return document.getElementById(id); }).filter(Boolean);
+        if (!('IntersectionObserver' in window) || !sections.length) return;
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    links.forEach(function (link) {
+                        link.classList.toggle('active', entry.target.id !== 'wizard' && link.getAttribute('href') === '#' + entry.target.id);
+                    });
+                }
+            });
+        }, { rootMargin: '-45% 0px -50% 0px' });
+        sections.forEach(function (section) { io.observe(section); });
+    })();
+    </script>
 </body>
 </html>
