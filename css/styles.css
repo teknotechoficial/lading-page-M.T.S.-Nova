@@ -1059,57 +1059,6 @@ a {
 
 /* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
-/* Botón flotante de WhatsApp (presente en todas las secciones) */
-.whatsapp-float {
-    position: fixed;
-    right: 24px;
-    bottom: 24px;
-    z-index: 1200;
-    width: 58px;
-    height: 58px;
-    border-radius: 50%;
-    background: #25D366;
-    color: var(--white);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 12px 32px rgba(37, 211, 102, 0.42);
-    transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
-}
-
-/* Anillo pulsante suave alrededor del botón flotante. */
-.whatsapp-float::before {
-    content: '';
-    position: absolute;
-    inset: -6px;
-    border-radius: 50%;
-    border: 2px solid rgba(37, 211, 102, 0.45);
-    pointer-events: none;
-    animation: ringPulse 2.8s ease-out infinite;
-}
-
-@keyframes ringPulse {
-    0% { transform: scale(0.86); opacity: 0.55; }
-    70%, 100% { transform: scale(1.25); opacity: 0; }
-}
-
-.whatsapp-float:hover,
-.whatsapp-float:focus-visible {
-    transform: scale(1.08) translateY(-2px);
-    box-shadow: 0 16px 40px rgba(37, 211, 102, 0.5);
-}
-
-.whatsapp-float.oculto {
-    opacity: 0;
-    pointer-events: none;
-    transform: scale(0.75);
-}
-
-.whatsapp-float svg {
-    width: 31px;
-    height: 31px;
-}
-
 /* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
 /* Footer */
@@ -1541,18 +1490,6 @@ a {
     .social-row {
         gap: 16px;
     }
-
-    .whatsapp-float {
-        right: 16px;
-        bottom: 16px;
-        width: 52px;
-        height: 52px;
-    }
-
-    .whatsapp-float svg {
-        width: 28px;
-        height: 28px;
-    }
 }
 
 /* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
@@ -1575,8 +1512,7 @@ a {
     .about-isotipo,
     .steel-section::before,
     .wizard-nav,
-    .wizard-step.active .option-btn,
-    .whatsapp-float::before {
+    .wizard-step.active .option-btn {
         animation: none !important;
     }
 
@@ -1704,4 +1640,50 @@ a {
 .access-btn-primary:hover {
     background: #0058b0;
     border-color: #0058b0;
+}
+
+/* === CTA en la esquina superior derecha === */
+.header-cta {
+    position: absolute;
+    right: 28px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    padding: 0 18px;
+    border-radius: 999px;
+    background: var(--gold);
+    color: var(--navy);
+    font-family: var(--font-titulos);
+    font-weight: 800;
+    font-size: 0.68rem;
+    letter-spacing: 2px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.header-cta:hover,
+.header-cta:focus-visible {
+    background: var(--gold-soft);
+    transform: translateY(calc(-50% - 2px));
+    box-shadow: 0 10px 26px rgba(217, 169, 79, 0.25);
+}
+
+@media (max-width: 768px) {
+    .header-cta {
+        right: 66px;
+        height: 34px;
+        padding: 0 12px;
+        font-size: 0.6rem;
+        letter-spacing: 1.4px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-cta {
+        display: none;
+    }
 }
