@@ -41,6 +41,7 @@ html {
 
 body {
     font-family: var(--font-textos);
+    font-size: 1rem;
     color: var(--white);
     line-height: 1.65;
     background-color: var(--black);
@@ -162,7 +163,7 @@ a {
     color: var(--white);
     font-family: var(--font-titulos);
     font-weight: 700;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     letter-spacing: 2.2px;
     text-transform: uppercase;
     transition: color var(--transition);
@@ -253,6 +254,9 @@ a {
 
 /* Botones */
 .btn {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -268,6 +272,30 @@ a {
     line-height: 1.2;
     cursor: pointer;
     transition: var(--transition);
+}
+
+/* Barrido de brillo sutil al pasar el cursor (o al enfocar con teclado). */
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -130%;
+    width: 55%;
+    height: 100%;
+    background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+    transform: skewX(-20deg);
+    pointer-events: none;
+    z-index: 1;
+    transition: left 0.55s ease;
+}
+
+.btn:hover::after,
+.btn:focus-visible::after {
+    left: 140%;
+}
+
+.btn:disabled::after {
+    display: none;
 }
 
 .btn-primary {
@@ -329,6 +357,23 @@ a {
     overflow: hidden;
 }
 
+/* Resplandor ambiental muy tenue: queda por debajo del contenido (z-index 1). */
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at 50% 46%, rgba(217, 169, 79, 0.55) 0%, rgba(217, 169, 79, 0.18) 34%, transparent 68%);
+    opacity: 0.05;
+    animation: glowPulse 6s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse {
+    from { opacity: 0.05; }
+    to { opacity: 0.13; }
+}
+
 .hero > .container {
     max-width: none;
     width: 100%;
@@ -354,7 +399,7 @@ a {
 
 .hero-title {
     font-family: var(--font-titulos);
-    font-size: clamp(2.4rem, 3.2vw, 3rem);
+    font-size: clamp(2rem, 2.7vw, 2.6rem);
     font-weight: 800;
     color: var(--white);
     line-height: 1.18;
@@ -367,7 +412,7 @@ a {
 }
 
 .hero-description {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--white);
     max-width: 620px;
     line-height: 1.85;
@@ -421,7 +466,7 @@ a {
 
 /* === BOCETO 2 - NOSOTROS === */
 .about {
-    padding: clamp(60px, 7vw, 104px) 0 clamp(70px, 8vw, 120px);
+    padding: clamp(48px, 5vw, 76px) 0 clamp(56px, 6vw, 90px);
 }
 
 .about-content {
@@ -433,7 +478,7 @@ a {
 
 .about-title {
     font-family: var(--font-titulos);
-    font-size: clamp(2rem, 3.3vw, 3.3rem);
+    font-size: clamp(1.9rem, 2.6vw, 2.6rem);
     font-weight: 800;
     line-height: 1.14;
     letter-spacing: -1px;
@@ -442,11 +487,11 @@ a {
 }
 
 .about-description {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--white);
-    line-height: 2;
+    line-height: 1.9;
     max-width: 470px;
-    margin-top: 34px;
+    margin-top: 28px;
 }
 
 .about-visual {
@@ -460,7 +505,7 @@ a {
 .about-isotipo {
     position: relative;
     z-index: 1;
-    width: min(48vw, 800px);
+    width: min(36vw, 560px);
     max-width: 100%;
     object-fit: contain;
     filter: drop-shadow(0 18px 34px rgba(4, 14, 26, 0.24));
@@ -480,7 +525,7 @@ a {
 
 /* === BOCETO 3 - SERVICIOS === */
 .services {
-    padding: 34px 0 clamp(80px, 8vw, 120px);
+    padding: 30px 0 clamp(60px, 6vw, 90px);
 }
 
 .services-grid {
@@ -492,25 +537,26 @@ a {
 .service-card {
     background: var(--navy);
     border: 1px solid var(--gold);
-    border-radius: 48px;
-    padding: 50px 40px 46px;
-    min-height: 340px;
+    border-radius: 36px;
+    padding: 34px 28px;
+    min-height: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     text-align: center;
-    transition: transform var(--transition), box-shadow var(--transition);
+    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
 }
 
 .service-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 26px 54px rgba(4, 14, 26, 0.34);
+    border-color: var(--gold-soft);
+    box-shadow: 0 18px 40px rgba(217, 169, 79, 0.12);
 }
 
 .service-icon {
-    width: 120px;
-    height: 120px;
+    width: 84px;
+    height: 84px;
     border-radius: 50%;
     border: 1px solid var(--line-gold);
     background: rgba(217, 169, 79, 0.12);
@@ -521,32 +567,32 @@ a {
 }
 
 .service-icon svg {
-    width: 84px;
-    height: 84px;
+    width: 46px;
+    height: 46px;
     stroke: currentColor;
 }
 
 .service-title {
     font-family: var(--font-titulos);
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 1.35rem;
     color: var(--white);
-    margin-top: 26px;
+    margin-top: 22px;
     line-height: 1.2;
 }
 
 .service-description {
     color: rgba(255, 255, 255, 0.78);
-    font-size: 1.15rem;
+    font-size: 0.98rem;
     line-height: 1.6;
-    margin-top: 14px;
+    margin-top: 12px;
 }
 
 /* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
 /* === BOCETO 4 - PORTAFOLIO === */
 .portafolio {
-    padding: clamp(60px, 7vw, 100px) 0 clamp(80px, 9vw, 130px);
+    padding: clamp(48px, 5vw, 75px) 0 clamp(60px, 7vw, 95px);
 }
 
 .portfolio-grid {
@@ -561,19 +607,28 @@ a {
     flex-direction: column;
     background: var(--navy);
     border: 1px solid var(--gold);
-    border-radius: 48px;
+    border-radius: 36px;
     padding: 0;
     overflow: hidden;
     min-width: 0;
 }
 
+.portfolio-card img {
+    transition: transform 0.6s ease;
+}
+
+.portfolio-card:hover img,
+.portfolio-card:focus-within img {
+    transform: scale(1.045);
+}
+
 .portfolio-copy {
-    padding: 40px 40px 30px;
+    padding: 28px;
 }
 
 .portfolio-copy p {
     color: var(--white);
-    font-size: clamp(1.05rem, 1.55vw, 1.4rem);
+    font-size: 1.05rem;
     font-weight: 600;
     line-height: 1.45;
 }
@@ -584,18 +639,18 @@ a {
     height: auto;
     flex-shrink: 0;
     margin-top: auto;
-    border-radius: 0 0 47px 47px;
+    border-radius: 0 0 35px 35px;
 }
 
 .portfolio-fox {
     flex: 1 1 50%;
-    min-height: 250px;
+    min-height: 220px;
     background: #F2F1DC;
-    border-radius: 47px 47px 0 0;
+    border-radius: 35px 35px 0 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 30px;
+    padding: 28px;
 }
 
 .portfolio-fox-img {
@@ -609,40 +664,45 @@ a {
 
 .portfolio-info {
     flex: 1 1 50%;
-    padding: 32px 34px;
+    padding: 28px;
 }
 
 .portfolio-info h3 {
     font-family: var(--font-titulos);
     font-weight: 800;
-    font-size: 1.45rem;
+    font-size: 1.35rem;
     color: var(--white);
     line-height: 1.3;
 }
 
 .portfolio-info p {
     color: rgba(255, 255, 255, 0.82);
-    font-size: 1rem;
+    font-size: 0.98rem;
     line-height: 1.7;
-    margin-top: 16px;
+    margin-top: 14px;
 }
 
 /* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
 /* === BOCETO 5 - CONTACTO / CUESTIONARIO === */
 .wizard-section {
-    padding: clamp(60px, 7vw, 100px) 0 clamp(80px, 9vw, 130px);
+    padding: clamp(48px, 5vw, 75px) 0 clamp(60px, 7vw, 95px);
 }
 
 .wizard-container {
-    max-width: 1100px;
-    min-height: 520px;
+    max-width: 900px;
+    min-height: 440px;
     margin: 0 auto;
     background: var(--navy);
     border: 1px solid var(--gold);
-    border-radius: 64px;
-    padding: clamp(40px, 5vw, 70px) clamp(28px, 5vw, 76px);
-    box-shadow: 0 34px 80px rgba(4, 14, 26, 0.3);
+    border-radius: 52px;
+    padding: 36px 44px;
+    box-shadow: 0 28px 64px rgba(4, 14, 26, 0.3);
+}
+
+.section-title {
+    font-family: var(--font-titulos);
+    font-size: clamp(1.9rem, 2.6vw, 2.6rem);
 }
 
 .wizard-progress {
@@ -678,12 +738,12 @@ a {
 
 .step-title {
     font-family: var(--font-titulos);
-    font-size: 1.32rem;
+    font-size: 1.2rem;
     font-weight: 800;
     color: var(--white);
     line-height: 1.3;
     text-align: center;
-    margin-bottom: 32px;
+    margin-bottom: 26px;
 }
 
 .options-grid {
@@ -701,20 +761,20 @@ a {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    padding: 24px 16px;
+    gap: 9px;
+    padding: 16px 12px;
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid var(--line-soft);
-    border-radius: 18px;
+    border-radius: 14px;
     color: var(--white);
     font-family: var(--font-titulos);
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     font-weight: 700;
     line-height: 1.4;
     cursor: pointer;
     transition: var(--transition);
     text-align: center;
-    min-height: 96px;
+    min-height: 82px;
 }
 
 .option-btn:hover {
@@ -730,8 +790,8 @@ a {
 }
 
 .option-btn svg {
-    width: 30px;
-    height: 30px;
+    width: 26px;
+    height: 26px;
     stroke: var(--gold);
 }
 
@@ -846,12 +906,12 @@ a {
 
 /* Redes sociales bajo la tarjeta */
 .social-row {
-    max-width: 1100px;
-    margin: 36px auto 0;
+    max-width: 900px;
+    margin: 28px auto 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 28px;
+    gap: 20px;
 }
 
 .social-row a {
@@ -859,8 +919,8 @@ a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 44px;
-    height: 44px;
+    width: 34px;
+    height: 34px;
     border: 1px solid rgba(255, 255, 255, 0.4);
     border-radius: 50%;
     transition: color var(--transition), border-color var(--transition), transform var(--transition);
@@ -868,14 +928,14 @@ a {
 
 .social-row a:hover,
 .social-row a:focus-visible {
-    color: var(--gold-soft);
+    color: var(--gold);
     border-color: var(--gold);
     transform: translateY(-3px);
 }
 
 .social-row svg {
-    width: 22px;
-    height: 22px;
+    width: 18px;
+    height: 18px;
 }
 
 /* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
@@ -915,7 +975,7 @@ a {
 .footer {
     background: var(--navy);
     border-top: 1px solid rgba(217, 169, 79, 0.62);
-    padding: 66px 0;
+    padding: 50px 0;
 }
 
 .footer-content {
@@ -933,15 +993,15 @@ a {
 }
 
 .footer-logo-img {
-    width: 52px;
-    height: 52px;
+    width: 36px;
+    height: 36px;
     object-fit: contain;
 }
 
 .footer-brand {
     font-family: var(--font-titulos);
     font-weight: 800;
-    font-size: 1.12rem;
+    font-size: 1rem;
     letter-spacing: 0.6px;
     color: var(--white);
 }
@@ -952,7 +1012,7 @@ a {
 
 .footer-copyright {
     color: rgba(255, 255, 255, 0.7);
-    font-size: 0.86rem;
+    font-size: 0.92rem;
 }
 
 .footer-legal {
@@ -970,7 +1030,7 @@ a {
 
 .footer-data p {
     color: rgba(255, 255, 255, 0.82);
-    font-size: 0.9rem;
+    font-size: 0.92rem;
 }
 
 /* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
@@ -990,6 +1050,33 @@ a {
 
 /* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
+/* === Animaciones de entrada (sutiles) === */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to { opacity: 1; transform: none; }
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(.2,.7,.2,1);
+}
+
+.reveal.in-view {
+    opacity: 1;
+    transform: none;
+}
+
+/* Escalonado suave: solo donde no hay animación propia desde main.js. */
+.services .reveal:nth-child(2) { transition-delay: .08s; }
+.services .reveal:nth-child(3) { transition-delay: .16s; }
+.services .reveal:nth-child(4) { transition-delay: .24s; }
+.services .reveal:nth-child(5) { transition-delay: .32s; }
+.services .reveal:nth-child(6) { transition-delay: .40s; }
+.portfolio-grid .portfolio-card:nth-child(2) { transition-delay: .12s; }
+
+/* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
+
 /* Responsive Design */
 @media (max-width: 992px) {
     .container {
@@ -1004,7 +1091,7 @@ a {
     }
 
     .hero-title {
-        font-size: clamp(2.2rem, 5vw, 3rem);
+        font-size: clamp(1.9rem, 3.2vw, 2.3rem);
         white-space: normal;
     }
 
@@ -1024,13 +1111,14 @@ a {
     }
 
     .about-visual {
-        max-width: 520px;
+        max-width: 460px;
         margin: 0 auto;
         width: 100%;
     }
 
     .about-isotipo {
         width: 100%;
+        max-width: 460px;
     }
 
     .services-grid {
@@ -1038,7 +1126,7 @@ a {
     }
 
     .service-title {
-        font-size: 1.7rem;
+        font-size: 1.3rem;
     }
 
     .portfolio-grid {
@@ -1046,7 +1134,7 @@ a {
     }
 
     .portfolio-copy p {
-        font-size: clamp(1.1rem, 2.4vw, 1.5rem);
+        font-size: 1.05rem;
     }
 
     .footer-content {
@@ -1066,8 +1154,8 @@ a {
     }
 
     .wizard-container {
-        padding: 44px 40px;
-        border-radius: 48px;
+        padding: 32px 30px;
+        border-radius: 44px;
     }
 }
 
@@ -1109,7 +1197,7 @@ a {
     }
 
     .hero-title {
-        font-size: clamp(2rem, 7vw, 2.8rem);
+        font-size: clamp(1.8rem, 6vw, 2.4rem);
     }
 
     .hero-description {
@@ -1122,26 +1210,26 @@ a {
 
     .service-card {
         min-height: auto;
-        padding: 40px 28px;
+        padding: 30px 24px;
     }
 
     .service-icon {
-        width: 100px;
-        height: 100px;
+        width: 76px;
+        height: 76px;
     }
 
     .service-icon svg {
-        width: 70px;
-        height: 70px;
+        width: 42px;
+        height: 42px;
     }
 
     .service-title {
-        font-size: 1.55rem;
+        font-size: 1.25rem;
     }
 
     .wizard-container {
-        border-radius: 32px;
-        padding: 38px 26px;
+        border-radius: 30px;
+        padding: 30px 22px;
     }
 
     .wizard-nav .btn {
@@ -1193,7 +1281,7 @@ a {
     }
 
     .hero-title {
-        font-size: clamp(1.8rem, 7.6vw, 2.3rem);
+        font-size: clamp(1.65rem, 6.6vw, 2.05rem);
         letter-spacing: -0.8px;
         white-space: normal;
     }
@@ -1214,7 +1302,7 @@ a {
     }
 
     .about-title {
-        font-size: clamp(1.75rem, 7.5vw, 2.2rem);
+        font-size: clamp(1.6rem, 6.6vw, 2rem);
         white-space: normal;
     }
 
@@ -1227,7 +1315,7 @@ a {
     }
 
     .portfolio-copy {
-        padding: 26px 24px 22px;
+        padding: 24px 20px;
     }
 
     .portfolio-copy p {
@@ -1253,8 +1341,8 @@ a {
     }
 
     .wizard-container {
-        border-radius: 24px;
-        padding: 28px 18px;
+        border-radius: 22px;
+        padding: 24px 16px;
         min-height: auto;
     }
 
@@ -1268,7 +1356,7 @@ a {
     }
 
     .option-btn {
-        padding: 16px;
+        padding: 14px 12px;
         min-height: auto;
     }
 
@@ -1286,8 +1374,8 @@ a {
     }
 
     .social-row a {
-        width: 40px;
-        height: 40px;
+        width: 34px;
+        height: 34px;
     }
 
     .whatsapp-float {
@@ -1309,9 +1397,14 @@ a {
     *,
     *::before,
     *::after {
+        animation: none !important;
+        transition: none !important;
         scroll-behavior: auto;
-        animation-duration: 0.01ms;
-        transition-duration: 0.01ms;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
     }
 }
 

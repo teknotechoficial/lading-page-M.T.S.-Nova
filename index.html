@@ -95,8 +95,8 @@
     <section class="hero" id="inicio">
         <div class="container hero-content">
             <div class="hero-copy">
-                <h1 class="hero-title">M.T.S. Nova,<br>Agencia de <span class="highlight">SOFTWARE</span></h1>
-                <p class="hero-description">Creamos soluciones digitales a medida, alineadas con tus objetivos, necesidades y visión de negocio.</p>
+                <h1 class="hero-title reveal">M.T.S. Nova,<br>Agencia de <span class="highlight">SOFTWARE</span></h1>
+                <p class="hero-description reveal">Creamos soluciones digitales a medida, alineadas con tus objetivos, necesidades y visión de negocio.</p>
             </div>
             <div class="hero-cta">
                 <a href="#wizard" class="btn btn-primary btn-pill">COTIZÁ YA</a>
@@ -108,12 +108,12 @@
     <section class="steel-section about" id="nosotros">
         <div class="container about-content">
             <div class="about-copy">
-                <h2 class="about-title">Más que Software,<br>creamos experiencias</h2>
-                <p class="about-description">Somos una empresa tecnológica internacional especializada en el desarrollo de software. Trabajamos junto a empresas, negocios y profesionales para transformar sus necesidades en soluciones que impulsen sus objetivos.</p>
+                <h2 class="about-title reveal">Más que Software,<br>creamos experiencias</h2>
+                <p class="about-description reveal">Somos una empresa tecnológica internacional especializada en el desarrollo de software. Trabajamos junto a empresas, negocios y profesionales para transformar sus necesidades en soluciones que impulsen sus objetivos.</p>
             </div>
             <div class="about-visual" aria-hidden="true">
                 <div class="about-shadow"></div>
-                <img src="assets/mts-isotipo.png" alt="" class="about-isotipo">
+                <img src="assets/mts-isotipo.png" alt="" class="about-isotipo reveal">
             </div>
         </div>
     </section>
@@ -204,7 +204,7 @@
 
     <section class="steel-section portafolio" id="portafolio">
         <div class="container portfolio-grid">
-            <article class="portfolio-card portfolio-card-wide">
+            <article class="portfolio-card portfolio-card-wide reveal">
                 <div class="portfolio-copy">
                     <p>Landing page para una productora audiovisual independiente, con estética cinematográfica, galería interactiva, reproductor de video, animaciones al scroll, diseño responsive y SEO optimizado.</p>
                 </div>
@@ -212,7 +212,7 @@
             </article>
             <!-- M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. -->
 
-            <article class="portfolio-card portfolio-card-narrow">
+            <article class="portfolio-card portfolio-card-narrow reveal">
                 <div class="portfolio-fox">
                     <img src="assets/portafolio-fox.png" alt="Zorro con anteojos, identidad de Cine Fox" class="portfolio-fox-img">
                 </div>
@@ -231,7 +231,7 @@
             <div class="container">
                 <h2 class="section-title sr-only">¿Qué necesita?</h2>
                 <p class="section-subtitle sr-only">Respondi unas preguntas y te ayudamos a encontrar lo que buscas</p>
-                <div class="wizard-container">
+                <div class="wizard-container reveal">
                     <div class="wizard-progress" role="progressbar" aria-label="Progreso del cuestionario" aria-valuemin="0" aria-valuemax="100" aria-valuenow="20"><div class="progress-bar" id="progress-bar" style="width:20%"></div></div>
                     <!-- M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. -->
 
@@ -416,7 +416,7 @@
     </a>
 
     <footer class="footer">
-        <div class="container footer-content">
+        <div class="container footer-content reveal">
             <a href="#inicio" class="footer-logo" aria-label="M.T.S. Nova - Inicio">
                 <img src="assets/mts-isotipo.png" alt="M.T.S. Nova" class="footer-logo-img">
                 <span class="footer-brand">M.T.S. Nova</span>
@@ -476,6 +476,24 @@
             });
         }, { rootMargin: '-45% 0px -50% 0px' });
         sections.forEach(function (section) { io.observe(section); });
+    })();
+
+    /* Revelado sutil de títulos, párrafos y tarjetas al entrar en viewport. */
+    (function () {
+        var reveals = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+        if (!reveals.length) return;
+        if (!('IntersectionObserver' in window)) {
+            reveals.forEach(function (el) { el.classList.add('in-view'); });
+            return;
+        }
+        var revealObserver = new IntersectionObserver(function (entries, observer) {
+            entries.forEach(function (entry) {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('in-view');
+                observer.unobserve(entry.target);
+            });
+        }, { threshold: 0.12 });
+        reveals.forEach(function (el) { revealObserver.observe(el); });
     })();
     </script>
 </body>
