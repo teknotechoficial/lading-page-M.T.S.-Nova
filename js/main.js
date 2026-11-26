@@ -41,13 +41,8 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', function() {
         const currentScroll = window.pageYOffset;
         
-        if (currentScroll > 100) {
-            header.style.background = 'rgba(13, 13, 13, 0.98)';
-            header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.4)';
-        } else {
-            header.style.background = '#0d0d0d';
-            header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.3)';
-        }
+        header.style.background = 'transparent';
+        header.style.boxShadow = 'none';
         
         lastScroll = currentScroll;
     });
