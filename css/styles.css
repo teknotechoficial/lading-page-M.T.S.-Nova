@@ -1715,3 +1715,14 @@ a {
 }
 
 
+
+/* Marca de agua: archivo externo en vez de 345 KB de base64 inline. */
+.watermark {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    pointer-events: none;
+    opacity: 0.015;
+    background: url('../assets/watermark.jpg') no-repeat center center;
+    background-size: contain;
+}
