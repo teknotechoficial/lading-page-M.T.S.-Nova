@@ -23,6 +23,7 @@
     --azul-claro: #4C8FD8;
     --font-titulos: 'Montserrat', sans-serif;
     --font-textos: 'Open Sans', sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
     --transition: 0.3s ease;
 }
 
@@ -161,7 +162,7 @@ a {
     position: relative;
     text-decoration: none;
     color: var(--white);
-    font-family: var(--font-titulos);
+    font-family: var(--font-mono);
     font-weight: 700;
     font-size: 0.7rem;
     letter-spacing: 2.2px;
@@ -451,6 +452,40 @@ a {
     50% { background-position: 100% 0; }
 }
 
+/* Grano de ruido muy tenue sobre las secciones de acero. */
+.steel-section::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+}
+
+/* El contenido queda por encima de la textura. */
+.steel-section > .container,
+.steel-section > .wizard-wrap {
+    position: relative;
+    z-index: 1;
+}
+
+/* Etiquetas editoriales numeradas: tipografía, no cajas. */
+.section-eyebrow {
+    display: block;
+    position: relative;
+    z-index: 1;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
 /* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
 /* === BOCETO 2 - NOSOTROS === */
@@ -476,7 +511,7 @@ a {
 
 .about-eyebrow {
     display: block;
-    font-family: var(--font-titulos);
+    font-family: var(--font-mono);
     font-weight: 700;
     font-size: 0.72rem;
     letter-spacing: 3px;
@@ -643,6 +678,7 @@ a {
 }
 
 .portfolio-card {
+    position: relative;
     display: flex;
     flex-direction: column;
     background: var(--navy);
@@ -661,6 +697,29 @@ a {
 .portfolio-card:hover img,
 .portfolio-card:focus-within img {
     transform: scale(1.045);
+}
+
+/* Affordance: aparece solo al interactuar, sin ocupar espacio en reposo. */
+.portfolio-card::after {
+    content: 'Ver caso →';
+    position: absolute;
+    right: 22px;
+    bottom: 18px;
+    z-index: 2;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: var(--gold);
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.75);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition);
+}
+
+.portfolio-card:hover::after,
+.portfolio-card:focus-within::after {
+    opacity: 1;
 }
 
 /* Elevación sutil de la tarjeta además del zoom de imagen. */
@@ -798,7 +857,7 @@ a {
 }
 
 .step-title {
-    font-family: var(--font-titulos);
+    font-family: var(--font-mono);
     font-size: 1.2rem;
     font-weight: 800;
     color: var(--white);
@@ -828,7 +887,7 @@ a {
     border: 1px solid var(--line-soft);
     border-radius: 14px;
     color: var(--white);
-    font-family: var(--font-titulos);
+    font-family: var(--font-mono);
     font-size: 0.78rem;
     font-weight: 700;
     line-height: 1.4;
@@ -1087,7 +1146,7 @@ a {
 }
 
 .footer-legal {
-    font-family: var(--font-titulos);
+    font-family: var(--font-mono);
     font-size: 0.68rem;
     font-weight: 700;
     letter-spacing: 2px;

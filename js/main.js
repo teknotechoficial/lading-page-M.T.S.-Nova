@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     Nombre: name,
                     Email: email,
                     Mensaje: message,
-                    _subject: 'Mensaje desde M.T.S. Nova - Contacto',
+                    _subject: 'URGENTE - Mensaje desde M.T.S. Nova - Contacto',
                     _captcha: 'false'
                 })
             }).then(function() {
@@ -194,8 +194,8 @@ let wizardData = {
 /* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
 const stepSequences = {
-    software: ['1', '2a', '3a', '4a', 'summary'],
-    tecnico: ['1', '2b', '3b', '4b', '5b', 'summary']
+    software: ['1', '2a', '3a', '4a', 'sent'],
+    tecnico: ['1', '2b', '3b', '4b', '5b', 'sent']
 };
 
 let currentSequence = [];
@@ -256,18 +256,14 @@ function selectFault(btn) {
 }
 /* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
-document.getElementById('project-desc').addEventListener('input', function() {
-    if (currentStep === '4a') document.getElementById('btn-next').disabled = this.value.trim() === '';
-});
 /* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
-document.getElementById('problem-desc').addEventListener('input', function() {
-    if (currentStep === '5b') document.getElementById('btn-next').disabled = this.value.trim() === '';
-});
 /* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
 function nextStep() {
     if (currentStep === '1' && !wizardData.service) return;
+    if (currentStep === '4a' && !document.getElementById('project-desc').value.trim()) return;
+    if (currentStep === '5b' && !document.getElementById('problem-desc').value.trim()) return;
     
     if (wizardData.service === 'software') {
         if (currentStep === '4a') {
@@ -282,9 +278,9 @@ function nextStep() {
     const nextIndex = currentSequence.indexOf(currentStep) + 1;
     if (nextIndex < currentSequence.length) {
         const nextStepNum = currentSequence[nextIndex];
-        if (nextStepNum === 'summary') {
-            showSummary();
-            showStep('summary');
+        if (nextStepNum === 'sent') {
+            showStep('sent');
+            sendToFormSubmit();
         } else {
             showStep(nextStepNum);
         }
@@ -301,6 +297,17 @@ function prevStep() {
 }
 /* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
+function updateProgress(extra) {
+    const total = currentSequence.length;
+    const idx = currentSequence.indexOf(currentStep);
+    let pct = total ? ((idx + 1 + (extra || 0)) / total) * 100 : 0;
+    pct = Math.min(100, Math.max(0, pct));
+    const bar = document.getElementById('progress-bar');
+    if (bar) bar.style.width = pct + '%';
+    const track = document.querySelector('.wizard-progress');
+    if (track) track.setAttribute('aria-valuenow', Math.round(pct));
+}
+
 function showStep(step) {
     document.querySelectorAll('.wizard-step').forEach(s => s.classList.remove('active'));
     document.querySelector('[data-step="' + step + '"]').classList.add('active');
@@ -308,34 +315,18 @@ function showStep(step) {
     
     const btnBack = document.getElementById('btn-back');
     const btnNext = document.getElementById('btn-next');
-    const btnSend = document.getElementById('btn-send');
     
     btnBack.style.display = currentSequence.indexOf(currentStep) > 0 ? 'inline-block' : 'none';
     
-    if (step === 'summary') {
+    if (step === 'sent') {
         btnNext.style.display = 'none';
-        btnSend.style.display = 'inline-block';
-        btnBack.style.display = 'inline-block';
-    } else if (step === 'sent') {
-        btnNext.style.display = 'none';
-        btnSend.style.display = 'none';
         btnBack.style.display = 'none';
     } else {
         btnNext.style.display = 'inline-block';
-        btnSend.style.display = 'none';
-        if (step === '4a') {
-            btnNext.disabled = document.getElementById('project-desc').value.trim() === '';
-        } else if (step === '5b') {
-            btnNext.disabled = document.getElementById('problem-desc').value.trim() === '';
-        } else {
-            btnNext.disabled = true;
-        }
+        btnNext.disabled = false;
     }
     
-    const progress = ((currentSequence.indexOf(currentStep) + 1) / currentSequence.length) * 100;
-    document.getElementById('progress-bar').style.width = progress + '%';
-    const progressEl = document.querySelector('.wizard-progress');
-    if (progressEl) progressEl.setAttribute('aria-valuenow', Math.round(progress));
+    updateProgress(0);
 
     const activeStep = document.querySelector('.wizard-step.active');
     if (activeStep) {
@@ -374,7 +365,17 @@ function showSummary() {
 /* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
 
 function getSoftwareTypeLabel(type) {
-    const labels = { web: 'Página Web', app: 'App Móvil', sistema: 'Sistema a Medida' };
+    const labels = {
+        'diseno-web': 'Diseño de páginas web',
+        'landing': 'Landing pages',
+        'sitios-competitivos': 'Sitios web competitivos',
+        'ecommerce': 'Tiendas online (E-commerce)',
+        'mantenimiento': 'Mantenimiento y soporte',
+        'seo': 'Optimización SEO',
+        'sistemas': 'Sistemas a medida',
+        'escritorio': 'Aplicaciones de escritorio',
+        'software-medida': 'Software a medida'
+    };
     return labels[type] || type;
 }
 /* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
@@ -434,19 +435,32 @@ function sendToFormSubmit() {
         if (wizardData.problemDesc) details += 'Descripción: ' + wizardData.problemDesc;
     }
 
+    const payload = {
+        Servicio: serviceText,
+        Detalles: details,
+        Fecha: new Date().toLocaleString('es-AR', { dateStyle: 'short', timeStyle: 'short' }),
+        Origen: 'Cuestionario web M.T.S. Nova',
+        _subject: 'URGENTE - Nueva solicitud M.T.S. Nova',
+        _captcha: 'false'
+    };
+
+    if (wizardData.service === 'software') {
+        payload.Para = wizardData.clientType === 'empresa' ? 'Empresa' : 'Marca Personal';
+        payload.Tipo = getSoftwareTypeLabel(wizardData.softwareType);
+        payload.Descripcion = wizardData.projectDesc || '';
+    } else {
+        payload.Dispositivo = capitalize(wizardData.device);
+        payload.Marca = capitalize(wizardData.brand);
+        payload.Problema = getFaultLabel(wizardData.fault);
+        payload.Descripcion = wizardData.problemDesc || '';
+    }
+
     fetch('https://formsubmit.co/ajax/teknotech.oficial@gmail.com', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            Servicio: serviceText,
-            Detalles: details,
-            _subject: 'Nueva solicitud desde M.T.S. Nova',
-            _captcha: 'false'
-        })
-    }).then(function() {
-        showStep('sent');
-    }).catch(function() {
-        showStep('sent');
+        body: JSON.stringify(payload)
+    }).catch(function(error) {
+        console.warn('No se pudo enviar el correo:', error);
     });
 }
 /* M.T.S. Nova - Creadores y Dueños. Prohibido vender o modificar sin autorización. */
@@ -469,7 +483,6 @@ function resetWizard() {
     document.getElementById('btn-next').style.display = 'inline-block';
     document.getElementById('btn-next').disabled = true;
     document.getElementById('btn-back').style.display = 'none';
-    document.getElementById('btn-send').style.display = 'none';
     document.getElementById('progress-bar').style.width = '0%';
     const progressEl = document.querySelector('.wizard-progress');
     if (progressEl) progressEl.setAttribute('aria-valuenow', '0');
